@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stiles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="/js/script.js"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+
+    <title>Qatumana Market</title>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Qatumana Market</h1>
+            <nav>
+                <ul>
+                    <li><a class="active" href="#">Inicio</a></li>
+                    <li><a class="active" href="#">Reportes</a></li>
+                    <li><a class="active" href="#">Configuración</a></li>
+                    <li><a class="active" href="#">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="cards">
+                <div class="card">
+                    <h2>Ventas</h2>
+                    <p>1000</p>
+                </div>
+                <div class="card">
+                    <h2>Usuarios</h2>
+                    <p>500</p>
+                </div>
+                <div class="card">
+                    <h2>Ingresos</h2>
+                    <p>$5000</p>
+                </div>
+                <div class="card">
+                    <h2>Soporte</h2>
+                    <p>20 tickets</p>
+                </div>
+                
+            </section>
+
+
+<!------------------------------GRAFICOS-------------------------------------------------->
+            <section class="charts">
+                <div class="chart">
+                    <h2>Gráfico de Ventas</h2>
+                    <canvas id="myBarChart" width="400" height="200"></canvas>
+                    <script>
+                        const ctx = document.getElementById('myBarChart').getContext('2d');
+                        const myBarChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                                datasets: [{
+                                    label: 'Ventas',
+                                    data: [12, 19, 3, 5, 2], 
+                                    backgroundColor: 'rgba(30, 112, 255)', // Color de las barras
+                                    borderColor: 'rgba(75, 192, 192, 1)', // Color del borde
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true 
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+
+                </div>
+                <div class="chart">
+                    <h2>Gráfico de Usuarios</h2>
+                    <canvas id="userChart" width="400" height="200"></canvas>
+
+                    <script>
+                        const ctx2 = document.getElementById('userChart').getContext('2d');
+                        const userChart = new Chart(ctx2, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Activos', 'Inactivos', 'Pendientes'], 
+                                datasets: [{
+                                    label: 'Cantidad de Usuarios',
+                                    data: [150, 40, 80], 
+                                    backgroundColor: [
+                                        'rgba(78, 255, 30)', // Color de usuarios activos
+                                        'rgba(255, 30, 30)', // Color de usuarios inactivos
+                                        'rgba(207, 255, 30)'  // Color de usuarios pendientes
+                                    ],
+                                    borderColor: [
+                                        'rgba(78, 255, 30)',
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(255, 206, 86, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true 
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                    
+                </div>
+<!--------------RELOJ-------------------------->
+
+<div class="card">
+    <h1>Hora actual:</h1>
+    <div id="reloj"></div>
+    <script>
+        function actualizarReloj() {
+            const fecha = new Date();
+            const horas = String(fecha.getHours()).padStart(2, '0');
+            const minutos = String(fecha.getMinutes()).padStart(2, '0');
+            const segundos = String(fecha.getSeconds()).padStart(2, '0');
+            document.getElementById('reloj').textContent = `${horas}:${minutos}:${segundos}`;
+        }
+
+        setInterval(actualizarReloj, 1000); 
+        actualizarReloj(); 
+    </script>
+</div>
+
+<!--------------------CALENDARIO------------------------------->
+
+<div class="card">
+    <h1>Hoy es:</h1>
+    <div id="dia"></div>
+
+    <script>
+        function mostrarDiaActual() {
+            const fechaActual = new Date();
+            const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const diaFormateado = fechaActual.toLocaleDateString('es-ES', opciones);
+            document.getElementById('dia').textContent = diaFormateado;
+        }
+
+        mostrarDiaActual();
+    </script>
+
+</div>
+<!---------------------------------------------------------->
+            </section>
+        </main>
+    </div>
+</body>
+</html>
