@@ -36,9 +36,10 @@ body {
 
 
 nav{
-    position: fixed;
+    cursor: pointer;
+    position: absolute;
     float: left;
-    top: 0;
+    top: 300px;
     flex-direction: column;
     justify-content: center;
     right: 100%;
@@ -47,7 +48,7 @@ nav{
 }
 
 .dashboard {
-        margin-left: 220px; /* Dejar espacio para el menú */
+        margin-left: 220px; 
         padding: 20px;
     }
 
@@ -107,7 +108,7 @@ nav ul li a {
 }
 
 .card {
-    background: white;
+    background: rgb(189, 255, 249);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -121,7 +122,7 @@ nav ul li a {
 }
 
 .chart {
-    background: white;
+    background: rgb(246, 255, 193);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -145,11 +146,11 @@ nav ul li a {
 }
 
 nav ul ul {
-    display: none; /* Ocultar submenú inicialmente */
-    position: absolute; /* Posición absoluta para el submenú */
-    top: 0; /* Alinear al top del elemento padre */
-    left: 100%; /* Mostrar a la derecha del menú padre */
-    background-color: #e9ffb5; /* Color de fondo del submenú */
+    display: none; 
+    position: absolute; 
+    top: 0; 
+    left: 100%; 
+    background-color: #e9ffb5; 
     padding: 0;
     list-style-type: none;
     margin: 0;
@@ -179,7 +180,7 @@ nav ul li a {
 
 
 nav ul ul li a:hover {
-    background-color: #ffabab; /* Cambia el fondo cuando el usuario pasa el ratón */
+    background-color: #ffabab; 
 }
 
 nav a:hover{
